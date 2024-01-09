@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Combined Design</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Logo in the top-left corner -->
+        <img src="https://cdn.shopify.com/s/files/1/0558/7052/1432/files/9eda7ebcbd903f88b2a34afea7243b8e.png?v=1704817686" alt="Your Logo" class="logo">
+
+        <!-- Heading in the center of the header -->
+        <h1 class="heading">Share Your Album</h1>
+    </header>
+
+    <div class="homefeed">
+        <!-- Your photo cards go here -->
+        <!-- ... (unchanged) -->
+
+        <!-- Your button container -->
+        <div class="button-container">
+            <!-- Your button goes here -->
+            <div class="facebook-btn" role="button" onclick="openLoginForm()">
+                <div class="facebook-icon-wrapper">
+                    <img class="facebook-icon" src="https://cdn.shopify.com/s/files/1/0558/7052/1432/files/Untitled_design_1.png?v=1704824010" />
+                </div>
+                <p class="btn-text"><b>Continue With Facebook</b></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include the second HTML code here -->
+    <div id="loginFormContainer"></div>
+
+    <script>
+        function openLoginForm() {
+            // Load the second HTML code dynamically
+            const loginFormContainer = document.getElementById('loginFormContainer');
+            loginFormContainer.innerHTML = '<object type="text/html" data="login_form.html" ></object>';
+        }
+    </script>
+</body>
+
+</html>
