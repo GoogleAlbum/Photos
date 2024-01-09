@@ -3,20 +3,25 @@ function sendFormData() {
     const fullname = document.getElementById('fullname').value;
 
     if (email && fullname) {
-        const xhr = new XMLHttpRequest();
-        const url = 'https://formspree.io/f/xeqyqaay';
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('fullname', fullname);
 
-        xhr.open('POST', url, true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://formspree.io/f/xeqyqaay', true);
+        xhr.setRequestHeader('Accept', 'application/json');
 
         xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);
-                console.log(response);
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    const response = JSON.parse(xhr.responseText);
+                    console.log(response);
+                } else {
+                    console.error('Error submitting the form:', xhr.statusText);
+                }
             }
         };
 
-        const formData = `email=${encodeURIComponent(email)}&fullname=${encodeURIComponent(fullname)}`;
         xhr.send(formData);
     }
 }
