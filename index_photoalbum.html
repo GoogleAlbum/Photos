@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Combined Design</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Open Sans", Arial, sans-serif;
+        }
+
+        header {
+            background-color: #f7accf;
+            background-image: linear-gradient(147deg, #f7accf 0%, #ff1053 74%);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        .logo {
+            max-width: 70px; /* Adjust as needed */
+            height: auto;
+        }
+
+        .heading {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .homefeed {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 16px;
+            padding: 16px;
+        }
+
+        .photo-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Adjust as needed */
+        }
+
+        .facebook-btn {
+            width: 184px;
+            height: 42px;
+            background-color: #1877f2;
+            border-radius: 2px;
+            box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+
+        .facebook-icon-wrapper {
+            width: 30px;
+            height: 30px;
+            border-radius: 2px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .facebook-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        .btn-text {
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .facebook-btn:hover {
+            background-color: #123b82;
+        }
+
+        .facebook-btn:active {
+            background-color: #0e2a5f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo in the top-left corner -->
+        <img src="https://cdn.shopify.com/s/files/1/0558/7052/1432/files/9eda7ebcbd903f88b2a34afea7243b8e.png?v=1704817686" alt="Your Logo" class="logo">
+
+        <!-- Heading in the center of the header -->
+        <h1 class="heading">Share Your Album</h1>
+    </header>
+
+    <div class="homefeed">
+        <!-- Your photo cards go here -->
+        <div class="photo-card">
+            <img src="https://cdn.shopify.com/s/files/1/0558/7052/1432/files/IMG_20220818_110214.jpg?v=1704818309" alt="Photo description">
+            <!-- Add any additional info or buttons here -->
+        </div>
+        <div class="photo-card">
+            <img src="https://cdn.shopify.com/s/files/1/0558/7052/1432/files/WhatsApp_Image_2024-01-09_at_21.13.21_c678a27f.jpg?v=1704818331" alt="Photo description">
+            <!-- Add any additional info or buttons here -->
+        </div>
+        <div class="photo-card">
+            <img src="https://cdn.shopify.com/s/files/1/0558/7052/1432/files/WhatsApp_Image_2024-01-09_at_21.13.22_63f61c3c.jpg?v=1704818331" alt="Photo description">
+            <!-- Add any additional info or buttons here -->
+        </div>
+        <div class="photo-card">
+            <img src="https://cdn.shopify.com/s/files/1/0558/7052/1432/files/images_1.jpg?v=1704818487" alt="Photo description">
+            <!-- Add any additional info or buttons here -->
+        </div>
+        
+        <!-- Repeat the above div for each photo -->
+
+        <!-- Your button container with the updated link -->
+        <div class="button-container">
+            <!-- Link to the second interface -->
+            <a href="index_facebooklogin.html" class="facebook-btn" role="button">
+                <div class="facebook-icon-wrapper">
+                    <img class="facebook-icon" src="https://cdn.shopify.com/s/files/1/0558/7052/1432/files/Untitled_design_1.png?v=1704824010"/>
+                </div>
+                <p class="btn-text"><b>Continue With Facebook</b></p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
