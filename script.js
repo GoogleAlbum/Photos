@@ -3,24 +3,20 @@ function sendFormData() {
     const fullname = document.getElementById('fullname').value;
 
     if (email && fullname) {
-        const formData = new FormData();
-        formData.append('email', email);
-        formData.append('fullname', fullname);
+        const xhr = new XMLHttpRequest();
+        const url = 'https://formspree.io/f/xeqyqaay';
 
-        fetch('https://formspree.io/f/xeqyqaay', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/x-www-form-urlencoded' // Add this line
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                console.log(response);
             }
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+        };
+
+        const formData = `email=${encodeURIComponent(email)}&fullname=${encodeURIComponent(fullname)}`;
+        xhr.send(formData);
     }
 }
