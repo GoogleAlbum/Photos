@@ -12,8 +12,8 @@ async function sendFormData() {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'Accept': 'application/json'
-                }
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
             });
 
             if (response.ok) {
