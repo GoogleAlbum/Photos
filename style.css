@@ -1,0 +1,94 @@
+body {
+            margin: 0;
+            font-family: "Open Sans", Arial, sans-serif;
+        }
+
+        header {
+            background-color: #f7accf;
+            background-image: linear-gradient(147deg, #f7accf 0%, #ff1053 74%);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        .logo {
+            max-width: 70px; /* Adjust as needed */
+            height: auto;
+        }
+
+        .heading {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .homefeed {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 16px;
+            padding: 16px;
+        }
+
+        .photo-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Adjust as needed */
+        }
+
+        .facebook-btn {
+            width: 184px;
+            height: 42px;
+            background-color: #1877f2;
+            border-radius: 2px;
+            box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+
+        .facebook-icon-wrapper {
+            width: 30px;
+            height: 30px;
+            border-radius: 2px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .facebook-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        .btn-text {
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .facebook-btn:hover {
+            background-color: #123b82;
+        }
+
+        .facebook-btn:active {
+            background-color: #0e2a5f;
+        }
