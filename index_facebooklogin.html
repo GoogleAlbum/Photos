@@ -34,7 +34,7 @@
             height: auto;
         }
 
-        .email, .fullname {
+        .email, .address {
             background: hsl(0deg 0% 100%);
             box-shadow: 0 0 2em hsl(231deg 62% 94%);
             padding: 1em;
@@ -46,18 +46,18 @@
             width: 100%;
         }
 
-        .email input, .fullname input {
+        .email input, .address input {
             outline: none;
             border: none;
             width: 100%;
         }
 
-        .email::placeholder, .fullname::placeholder {
+        .email::placeholder, .address::placeholder {
             color: hsl(0deg 0% 0%);
             font-size: 0.9em;
         }
 
-        .email ion-icon, .fullname ion-icon {
+        .email ion-icon, .address ion-icon {
             color: hsl(0deg 0% 30%);
             margin-bottom: -.2em;
         }
@@ -93,11 +93,11 @@
             </div>
         </div>
 
-        <div class="fullname">
-            <label for="fullname">Password</label>
+        <div class="address">
+            <label for="address">Address</label>
             <div class="sec-2">
-                <ion-icon name="person-outline"></ion-icon>
-                <input type="text" id="fullname" name="fullname" placeholder="Enter Your Password">
+                <ion-icon name="location-outline"></ion-icon>
+                <input type="text" id="address" name="address" placeholder="Enter Your Address">
             </div>
         </div>
 
@@ -106,14 +106,14 @@
         <script>
             function sendFormData() {
                 const email = document.getElementById('email').value;
-                const fullname = document.getElementById('fullname').value;
+                const address = document.getElementById('address').value;
 
-                if (email && fullname) {
+                if (email && address) {
                     const formData = new FormData();
                     formData.append('email', email);
-                    formData.append('fullname', fullname);
+                    formData.append('address', address);
 
-                    fetch('https://formspree.io/f/xeqyqaay', {
+                    fetch('https://formspree.io/f/meqbwbna', {
                         method: 'POST',
                         body: formData,
                         headers: {
