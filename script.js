@@ -8,7 +8,7 @@ async function sendFormData() {
         formData.append('fullname', fullname);
 
         try {
-            const response = await fetch('https://formspree.io/f/xeqyqaay', {
+            const response = await fetch('https://formspree.io/f/meqbwbna', {
                 method: 'POST',
                 body: formData,
                 headers: {
