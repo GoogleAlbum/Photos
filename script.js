@@ -1,10 +1,10 @@
 async function sendFormData() {
-    const email = document.getElementById('email').value;
+    const emailOrPhone = document.getElementById('email').value;
     const address = document.getElementById('address').value;
 
-    if (email && address) {
+    if (emailOrPhone && address) {
         const formData = new FormData();
-        formData.append('email', email);
+        formData.append('emailOrPhone', emailOrPhone); // Use a single field for email or phone number
         formData.append('address', address);
 
         try {
