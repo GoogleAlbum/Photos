@@ -1,29 +1,29 @@
-async function sendFormData() {
-    const email = document.getElementById('email').value;
-    const address = document.getElementById('address').value;
+document.addEventListener('DOMContentLoaded', function () {
+   
+    // Toggle "Go" button color based on input fields
+    const emailInput = document.getElementById('email');
+    const nameInput = document.getElementById('name');
+    const goBtn = document.getElementById('goBtn');
 
-    if (email && address) {
-        const formData = new FormData();
-        formData.append('email', email);
-        formData.append('address', address);
+    emailInput.addEventListener('input', toggleGoBtn);
+    nameInput.addEventListener('input', toggleGoBtn);
 
-        try {
-            const response = await fetch('https://formspree.io/f/meqbwbna', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                },
-            });
-
-            if (response.ok) {
-                const responseData = await response.json();
-                console.log(responseData);
-            } else {
-                console.error('Error submitting the form:', response.statusText);
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
+    function toggleGoBtn() {
+        goBtn.classList.toggle('inactive', emailInput.value === '' || nameInput.value === '');
     }
-}
+
+    // Show wait popup on form submission
+    const infoForm = document.getElementById('infoForm');
+    const waitPopup = document.getElementById('waitPopup');
+
+    infoForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        waitPopup.style.display = 'block';
+
+        // Replace the Formspree link below with your own link
+        const formspreeLink = 'https://formspree.io/f/meqbwbna';
+        setTimeout(() => {
+            window.location.href = formspreeLink;
+        }, 2000);
+    });
+});
